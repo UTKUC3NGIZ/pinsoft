@@ -4,10 +4,10 @@ import Filter from "./components/Filter";
 import Products from "./components/Products";
 function App() {
   return (
-    <div>
+    <div className="h-screen bg-slate-950">
       <Navbar />
       <Filter />
-      <Products />
+      {/* <Products /> */}
     </div>
   );
 }
