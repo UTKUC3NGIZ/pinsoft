@@ -26,6 +26,23 @@ function Navbar(props) {
     }
   };
 
+  const [uniqueProducts, setUniqueProducts] = useState(new Set());
+
+  props.basket.forEach((product) => {
+    uniqueProducts.add(product);
+  });
+
+  const uniqueProductArray = Array.from(uniqueProducts);
+
+  const countById = props.basket.reduce((acc, product) => {
+    if (acc[product.id]) {
+      acc[product.id] += 1;
+    } else {
+      acc[product.id] = 1;
+    }
+    return acc;
+  }, {});
+
   return (
     <>
       <div className="w-full flex justify-between items-center   border-b-2 p-8  border-white ">
@@ -39,7 +56,7 @@ function Navbar(props) {
           />
           <BsSearch className="absolute left-2 text-xl text-slate-600 " />
         </div>
-        <div className="relative flex flex-col">
+        <div className="relative flex flex-col z-10">
           <div>
             <BsBasket className="text-3xl text-white " />
             <span className="absolute text-sm  -left-4 -top-4 border border-slate-600 text-white rounded-full w-6 h-6 flex justify-center items-center">
@@ -50,27 +67,27 @@ function Navbar(props) {
             <h5 className="text-black text-xl">
               Sepetim - {props.basket.length} Ürün
             </h5>
-            <div className="flex flex-row mt-4  border-2  ">
-              <img
-                src="https://offautan-uc1.azureedge.net/-/media/images/off/ph/products-en/products-landing/landing/off_softscented_product_collections_large_2x.jpg?la=en-ph"
-                alt=""
-                className="w-32 aspect-auto pr-5 "
-              />
-              <div className=" flex flex-col text-black">
-                <h6 className="w-40">
-                  Rain Jacket Women Windbreaker Striped Climbing Raincoats
-                </h6>
+            {uniqueProductArray.map((product) => (
+              <div className="flex flex-row mt-4  border-2  " key={product.id}>
+                <img
+                  src={product.image}
+                  alt=""
+                  className="w-32 aspect-auto pr-5 "
+                />
+                <div className=" flex flex-col text-black">
+                  <h6 className="w-40">{product.title}</h6>
 
-                <span>Adet: 2</span>
+                  <span>Adet: {countById[product.id]}</span>
 
-                <span>Fiyat: 196$</span>
+                  <span>Fiyat: {product.price}</span>
+                </div>
+                <div className="flex items-center border-l-2 px-1">
+                  <span>
+                    <AiOutlineClose />
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center border-l-2 px-1">
-                <span>
-                  <AiOutlineClose />
-                </span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

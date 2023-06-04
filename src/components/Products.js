@@ -12,7 +12,10 @@ function Products(props) {
   const dataShow = condition ? props.filteredData : props.filter;
 
   function addBasket(id) {
-    props.setBasket([...props.basket, id]);
+    const filteredProducts = props.products.filter((product) => {
+      return product.id === id;
+    });
+    props.setBasket([...props.basket, filteredProducts[0]]);
   }
 
   return (
@@ -44,7 +47,7 @@ function Products(props) {
                 >
                   Add to cart
                 </button>
-                <div className="flex items-center">
+                <div className="flex items-center z-0">
                   <ReactStars
                     count={5}
                     value={product.rating.rate}
@@ -53,6 +56,7 @@ function Products(props) {
                     color="#000"
                     edit={false}
                     isHalf={true}
+             
                   />
                   <span className="text-sm pl-1">({product.rating.count})</span>
                 </div>

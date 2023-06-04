@@ -10,8 +10,8 @@ function App() {
   const [products, setProducts] = useState(jsonData);
   const [filter, setFilter] = useState([]);
   const [filteredData, setFilteredData] = useState(products);
-  let [basket, setBasket] = useState([]);
-console.log(basket)
+  const [basket, setBasket] = useState([]);
+  
   return (
     <div className="h-full bg-slate-950">
       <Navbar
@@ -19,6 +19,7 @@ console.log(basket)
         filteredData={filteredData}
         setFilteredData={setFilteredData}
         basket={basket}
+        setBasket={setBasket}
       />
       <div className="flex ">
         <Filter products={products} setFilter={setFilter} filter={filter} />
