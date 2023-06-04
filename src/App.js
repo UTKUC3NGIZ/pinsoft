@@ -4,10 +4,12 @@ import Filter from "./components/Filter";
 import Products from "./components/Products";
 function App() {
   return (
-    <div className="h-screen bg-slate-950">
+    <div className="h-full bg-slate-950">
       <Navbar />
-      <Filter />
-      {/* <Products /> */}
+      <div className="flex ">
+        <Filter />
+        <Products />
+      </div>
     </div>
   );
 }
