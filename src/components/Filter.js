@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Filter(props) {
   const categories = [
@@ -26,7 +26,7 @@ function Filter(props) {
         {categories.map((productCategory, index) => (
           <div
             key={index}
-            className="text-xl p-8 hover:bg-slate-900 flex justify-between items-center "
+            className={`text-xl p-8 hover:bg-slate-900 flex justify-between items-center`}
             onClick={Filter}
           >
             <h3 className="text-white pointer-events-none">
