@@ -9,7 +9,6 @@ import jsonData from "./data/products-list.json";
 function App() {
   const [products, setProducts] = useState(jsonData);
   const [filter, setFilter] = useState([]);
-  console.log(filter);
   return (
     <div className="h-full bg-slate-950">
       <Navbar />

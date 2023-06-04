@@ -1,11 +1,19 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
 
+let condition = true;
 function Products(props) {
+  if (props.filter.length === 0) {
+    condition = true;
+  } else {
+    condition = false;
+  }
+  console.log(condition);
+  const dataShow = condition ? props.products : props.filter;
   return (
     <>
       <div className="grid grid-cols-4 w-5/6 gap-10 m-8 ">
-        {props.products.map((product) => (
+        {dataShow.map((product) => (
           <div
             className="flex flex-col justify-between bg-white p-6"
             key={product.id}
