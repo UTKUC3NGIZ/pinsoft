@@ -41,7 +41,7 @@ function Navbar(props) {
         <div className="relative flex">
           <BsBasket className="text-3xl text-white " />
           <span className="absolute text-sm  -left-4 -top-4 border border-slate-600 text-white rounded-full w-6 h-6 flex justify-center items-center">
-            12
+            {props.basket.length}
           </span>
         </div>
       </div>

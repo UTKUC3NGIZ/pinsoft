@@ -11,12 +11,16 @@ function Products(props) {
   }
   const dataShow = condition ? props.filteredData : props.filter;
 
+  function addBasket(id) {
+    props.setBasket([...props.basket, id]);
+  }
+
   return (
     <>
       <div className="grid grid-cols-4 w-5/6 gap-10 m-8 ">
         {dataShow.map((product) => (
           <div
-            className="flex flex-col justify-between bg-white p-6"
+            className="flex flex-col justify-between rounded-md bg-white p-6"
             key={product.id}
           >
             <div className="h-full flex items-center">
@@ -34,7 +38,10 @@ function Products(props) {
                 {product.price} $
               </span>
               <div className="flex flex-col">
-                <button className=" border-2 border-black py-3 my-3 text-xl">
+                <button
+                  className=" border-2 border-black py-3 my-3 text-xl"
+                  onClick={() => addBasket(product.id)}
+                >
                   Add to cart
                 </button>
                 <div className="flex items-center">
@@ -47,9 +54,7 @@ function Products(props) {
                     edit={false}
                     isHalf={true}
                   />
-                  <span className="text-sm pl-1">
-                    ({product.rating.count}){" "}
-                  </span>
+                  <span className="text-sm pl-1">({product.rating.count})</span>
                 </div>
               </div>
             </div>
