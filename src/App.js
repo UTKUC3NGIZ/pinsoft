@@ -8,13 +8,14 @@ import jsonData from "./data/products-list.json";
 
 function App() {
   const [products, setProducts] = useState(jsonData);
-
+  const [filter, setFilter] = useState([]);
+  console.log(filter);
   return (
     <div className="h-full bg-slate-950">
       <Navbar />
       <div className="flex ">
-        <Filter />
-        <Products products={products} />
+        <Filter products={products} setFilter={setFilter} filter={filter} />
+        <Products products={products} filter={filter} />
       </div>
     </div>
   );
