@@ -67,24 +67,20 @@ function Navbar(props) {
           />
           <BsSearch className="absolute left-2 text-xl text-slate-600 " />
         </div>
-        <div className="relative flex flex-col z-10">
+        <div className="relative flex flex-col z-10 group p-5">
           <div>
             <BsBasket className="text-3xl text-white " />
-            <span className="absolute text-sm  -left-4 -top-4 border border-slate-600 text-white rounded-full w-6 h-6 flex justify-center items-center">
+            <span className="absolute text-sm  left-0 top-0 border border-slate-600 text-white rounded-full w-6 h-6 flex justify-center items-center">
               {props.basket.length}
             </span>
           </div>
-          <div className="flex flex-col border p-4 bg-white absolute right-0 top-10 w-max">
+          <div className="hidden flex-col border p-4 bg-white absolute right-0 top-16 w-max group-hover:flex hover:flex">
             <h5 className="text-black text-xl">
               Sepetim - {props.basket.length} Ürün
             </h5>
             {uniqueProducts.map((product) => (
               <div className="flex flex-row mt-4  border-2  " key={product.id}>
-                <img
-                  src={product.image}
-                  alt=""
-                  className="w-32 aspect-auto pr-5 "
-                />
+                <img src={product.image} alt="" className="h-32 w-32 pr-5 " />
                 <div className=" flex flex-col text-black">
                   <h6 className="w-40">{product.title}</h6>
 
