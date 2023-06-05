@@ -22,17 +22,17 @@ function Filter(props) {
   }
   return (
     <>
-      <div className="flex flex-col w-1/6 border-r-2 border-black">
+      <div className="flex flex-col w-1/6 border-r-2 border-slate-200 font-custom text-slate-700">
         {categories.map((productCategory, index) => (
           <div
             key={index}
-            className={`text-xl p-8 hover:bg-slate-300 flex justify-between items-center group cursor-pointer`}
+            className={`text-xl p-8 hover:bg-slate-100 flex justify-between items-center group cursor-pointer`}
             onClick={Filter}
           >
-            <h3 className="text-black pointer-events-none">
+            <h3 className=" pointer-events-none ">
               {productCategory}
             </h3>
-            <span className="text-black border-b-2 border-slate-300 px-1 flex items-center justify-center text-base pointer-events-none group-hover:border-black">
+            <span className=" border-b-2 border-slate-200 px-1 flex items-center justify-center text-base pointer-events-none group-hover:border-slate-300">
               {categoryCounts[productCategory]}
             </span>
           </div>

@@ -56,42 +56,39 @@ function Navbar(props) {
 
   return (
     <>
-      <div className="w-full flex justify-between items-center   border-b-2 p-8  border-black ">
+      <div className="w-full flex justify-between items-center   border-b-2 p-8  border-slate-200 font-custom text-slate-700">
         <div className="relative flex items-center justify-start">
           <input
-            type="search"
             placeholder="Search"
-            className="h-12 border-2 border-black text-black placeholder:text-black rounded-xl  text-2xl pl-8 outline-none bg-white cursor-pointer "
+            className="h-12 border-2 border-slate-100 hover:border-slate-200 text-slate-700 placeholder:text-slate-700 rounded-xl  text-2xl pl-8 outline-none bg-white cursor-pointer "
             value={searchTerm}
             onChange={handleSearch}
           />
-          <BsSearch className="absolute left-2 text-xl text-black " />
+          <BsSearch className="absolute left-2 text-xl  " />
         </div>
         <div className="relative flex flex-col z-10 group p-5">
           <div>
-            <BsBasket className="text-3xl text-black cursor-pointer" />
-            <span className="absolute text-sm  left-0 top-0 border border-black text-black rounded-full w-6 h-6 flex justify-center items-center">
+            <BsBasket className="text-3xl  cursor-pointer" />
+            <span className="absolute text-sm  left-0 top-0 border border-slate-200  rounded-full w-6 h-6 flex justify-center items-center">
               {props.basket.length}
             </span>
           </div>
-          <div className="hidden flex-col border-2 p-4 bg-white border-black absolute right-0 top-16 w-max group-hover:flex hover:flex">
-            <h5 className="text-black text-xl">
-              Sepetim - {props.basket.length} Ürün
-            </h5>
+          <div className="hidden flex-col border-2 p-4 bg-white border-slate-200 absolute right-0 top-16 w-max group-hover:flex hover:flex">
+            <h5 className=" text-xl">Sepetim - {props.basket.length} Ürün</h5>
             {uniqueProducts.map((product) => (
               <div
-                className="flex flex-row mt-4  border-2 border-black bg-white "
+                className="flex flex-row mt-4  border-2 border-slate-200 bg-white   "
                 key={product.id}
               >
-                <img src={product.image} alt="" className="h-32 w-32 pr-5 " />
-                <div className=" flex flex-col text-black ">
+                <img src={product.image} alt="" className="h-32 w-32  p-2" />
+                <div className=" flex flex-col  ">
                   <h6 className="w-40">{product.title}</h6>
 
                   <span>Adet: {countById[product.id]}</span>
 
                   <span>Fiyat: {product.price}</span>
                 </div>
-                <div className="flex items-center border-l-2 border-black px-1 cursor-pointer bg-slate-300 hover:bg-slate-200">
+                <div className="flex items-center border-l-2 border-slate-200 px-1 cursor-pointer bg-slate-100 hover:bg-slate-200">
                   <span onClick={() => deneme(product.id)}>
                     <AiOutlineClose />
                   </span>

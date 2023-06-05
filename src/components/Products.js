@@ -21,10 +21,10 @@ function Products(props) {
 
   return (
     <>
-      <div className="grid grid-cols-4 w-5/6 gap-10 p-8 bg-slate-300 ">
+      <div className="grid grid-cols-4 w-5/6 gap-10 p-8 bg-slate-100 font-custom text-slate-700">
         {dataShow.map((product) => (
           <div
-            className="flex flex-col justify-between rounded-md bg-white p-6 border-2 border-black group"
+            className="flex flex-col justify-between rounded-md bg-white p-6 border-2 border-slate-200 group"
             key={product.id}
           >
             <div className="h-full flex items-center">
@@ -35,7 +35,7 @@ function Products(props) {
               />
             </div>
             <div className="flex flex-col">
-              <h4 className="pt-6 border-b-2 border-black pb-3 text-center text-xl group-hover:border-slate-300">
+              <h4 className="pt-6 border-b-2 border-slate-200 pb-3 text-center text-xl group-hover:border-slate-100">
                 {product.title}
               </h4>
               <span className="pt-3 text-center text-xl">
@@ -43,7 +43,7 @@ function Products(props) {
               </span>
               <div className="flex flex-col">
                 <button
-                  className=" border-2 border-black py-3 my-3 text-xl group-hover:bg-slate-300"
+                  className=" border-2 border-slate-200 py-3 my-3 text-xl group-hover:bg-slate-200"
                   onClick={() => addBasket(product.id)}
                 >
                   Add to cart
@@ -53,8 +53,8 @@ function Products(props) {
                     count={5}
                     value={product.rating.rate}
                     size={28}
-                    activeColor="#ffd700"
-                    color="#000"
+                    activeColor="#334155"
+                    color="#F0F5F9"
                     edit={false}
                     isHalf={true}
                   />
