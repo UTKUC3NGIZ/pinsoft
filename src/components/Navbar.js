@@ -56,7 +56,7 @@ function Navbar(props) {
 
   return (
     <>
-      <div className="w-full flex justify-between items-center   border-b-2 p-8  border-slate-200 font-custom text-slate-700">
+      <div className="w-full flex justify-between items-center   border-b-2 lg:p-8 p-4  border-slate-200 font-custom text-slate-700">
         <div className="relative flex items-center justify-start">
           <input
             placeholder="Search"
@@ -77,12 +77,16 @@ function Navbar(props) {
             <h5 className=" text-xl">Sepetim - {props.basket.length} Ürün</h5>
             {uniqueProducts.map((product) => (
               <div
-                className="flex flex-row mt-4  border-2 border-slate-200 bg-white   "
+                className="flex flex-row mt-4  border-2 border-slate-200 bg-white  justify-between "
                 key={product.id}
               >
-                <img src={product.image} alt="" className="h-32 w-32  p-2" />
+                <img
+                  src={product.image}
+                  alt=""
+                  className=" lg:h-32 lg:w-auto w-32  lg:p-2 p-4"
+                />
                 <div className=" flex flex-col  ">
-                  <h6 className="w-40">{product.title}</h6>
+                  <h6 className="w-40 pt-2 lg:pt-0">{product.title}</h6>
 
                   <span>Adet: {countById[product.id]}</span>
 

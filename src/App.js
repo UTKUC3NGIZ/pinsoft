@@ -21,7 +21,7 @@ function App() {
         basket={basket}
         setBasket={setBasket}
       />
-      <div className="flex ">
+      <div className="flex lg:flex-row flex-col ">
         <Filter products={products} setFilter={setFilter} filter={filter} />
         <Products
           products={products}
