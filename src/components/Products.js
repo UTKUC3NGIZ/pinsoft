@@ -12,17 +12,16 @@ function Products(props) {
     condition = false;
   }
   const dataShow = condition ? props.filteredData : props.filter;
-  console.log(props.searchTerm.length);
   function addBasket(id) {
     const filteredProducts = props.products.filter((product) => {
       return product.id === id;
     });
     props.setBasket([...props.basket, filteredProducts[0]]);
   }
-
+ 
   return (
     <>
-      <div className="xl:grid-cols-4 lg:w-5/6 lg:gap-10 lg:p-8 grid grid-cols-1 gap-2 p-2 md:grid-cols-2  lg:grid-cols-3 bg-slate-100 font-custom text-slate-700">
+      <div className="xl:grid-cols-4 lg:w-5/6 lg:gap-10 lg:p-8 grid grid-cols-1 gap-2 p-2 md:grid-cols-3 sm:grid-cols-2  lg:grid-cols-3 bg-slate-100 font-custom text-slate-700">
         {dataShow.map((product) => (
           <div
             className="flex flex-col justify-between rounded-md bg-white p-6 border-2 border-slate-200 group"
