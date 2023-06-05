@@ -8,6 +8,7 @@ import jsonData from "./data/products-list.json";
 
 function App() {
   const [products, setProducts] = useState(jsonData);
+  const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState([]);
   const [filteredData, setFilteredData] = useState(products);
   const [basket, setBasket] = useState([]);
@@ -20,6 +21,8 @@ function App() {
         setFilteredData={setFilteredData}
         basket={basket}
         setBasket={setBasket}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
       />
       <div className="flex lg:flex-row flex-col ">
         <Filter products={products} setFilter={setFilter} filter={filter} />
@@ -29,6 +32,7 @@ function App() {
           filteredData={filteredData}
           setBasket={setBasket}
           basket={basket}
+          searchTerm={searchTerm}
         />
       </div>
     </div>

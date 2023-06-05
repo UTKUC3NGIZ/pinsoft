@@ -6,12 +6,13 @@ function Products(props) {
 
   if (props.filter.length === 0) {
     condition = true;
+  } else if (props.searchTerm.length > 0) {
+    condition = true;
   } else {
     condition = false;
   }
-  console.log(props.filter.length);
   const dataShow = condition ? props.filteredData : props.filter;
-
+  console.log(props.searchTerm.length);
   function addBasket(id) {
     const filteredProducts = props.products.filter((product) => {
       return product.id === id;

@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BsSearch, BsBasket } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 function Navbar(props) {
-  const [searchTerm, setSearchTerm] = useState("");
-
   const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
+    props.setSearchTerm(e.target.value);
     filterData(e.target.value);
   };
 
@@ -19,7 +17,7 @@ function Navbar(props) {
       },
       {}
     );
-    if (searchTerm.length === -1) {
+    if (props.searchTerm.length === -1) {
       props.setFilteredData(filtered);
     } else {
       props.setFilteredData(Object.values(filtered));
@@ -61,7 +59,7 @@ function Navbar(props) {
           <input
             placeholder="Search"
             className="h-12 border-2 border-slate-100 hover:border-slate-200 text-slate-700 placeholder:text-slate-700 rounded-xl  text-2xl pl-8 outline-none bg-white cursor-pointer "
-            value={searchTerm}
+            value={props.searchTerm}
             onChange={handleSearch}
           />
           <BsSearch className="absolute left-2 text-xl  " />
