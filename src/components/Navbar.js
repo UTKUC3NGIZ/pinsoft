@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsSearch, BsBasket } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 function Navbar(props) {
@@ -26,13 +26,13 @@ function Navbar(props) {
     }
   };
 
-  const [uniqueProducts, setUniqueProducts] = useState(new Set());
+  const [uniqueProducts, setUniqueProducts] = useState([]);
 
-  props.basket.forEach((product) => {
-    uniqueProducts.add(product);
-  });
-
-  const uniqueProductArray = Array.from(uniqueProducts);
+  useEffect(() => {
+    const uniqueProductSet = new Set(props.basket);
+    const uniqueProductArray = Array.from(uniqueProductSet);
+    setUniqueProducts(uniqueProductArray);
+  }, [props.basket]);
 
   const countById = props.basket.reduce((acc, product) => {
     if (acc[product.id]) {
@@ -42,6 +42,17 @@ function Navbar(props) {
     }
     return acc;
   }, {});
+
+  const newData = [...props.basket];
+  const deneme = (item) => {
+    for (let i = 0; i < newData.length; i++) {
+      if (newData[i].id === item) {
+        newData.splice(i, 1);
+        break;
+      }
+    }
+    props.setBasket(newData);
+  };
 
   return (
     <>
@@ -67,7 +78,7 @@ function Navbar(props) {
             <h5 className="text-black text-xl">
               Sepetim - {props.basket.length} Ürün
             </h5>
-            {uniqueProductArray.map((product) => (
+            {uniqueProducts.map((product) => (
               <div className="flex flex-row mt-4  border-2  " key={product.id}>
                 <img
                   src={product.image}
@@ -82,7 +93,7 @@ function Navbar(props) {
                   <span>Fiyat: {product.price}</span>
                 </div>
                 <div className="flex items-center border-l-2 px-1">
-                  <span>
+                  <span onClick={() => deneme(product.id)}>
                     <AiOutlineClose />
                   </span>
                 </div>
