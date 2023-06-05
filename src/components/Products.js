@@ -9,6 +9,7 @@ function Products(props) {
   } else {
     condition = false;
   }
+  console.log(props.filter.length);
   const dataShow = condition ? props.filteredData : props.filter;
 
   function addBasket(id) {
@@ -20,10 +21,10 @@ function Products(props) {
 
   return (
     <>
-      <div className="grid grid-cols-4 w-5/6 gap-10 m-8 ">
+      <div className="grid grid-cols-4 w-5/6 gap-10 p-8 bg-slate-300 ">
         {dataShow.map((product) => (
           <div
-            className="flex flex-col justify-between rounded-md bg-white p-6"
+            className="flex flex-col justify-between rounded-md bg-white p-6 border-2 border-black group"
             key={product.id}
           >
             <div className="h-full flex items-center">
@@ -34,7 +35,7 @@ function Products(props) {
               />
             </div>
             <div className="flex flex-col">
-              <h4 className="pt-6 border-b-2 border-black pb-3 text-center text-xl">
+              <h4 className="pt-6 border-b-2 border-black pb-3 text-center text-xl group-hover:border-slate-300">
                 {product.title}
               </h4>
               <span className="pt-3 text-center text-xl">
@@ -42,7 +43,7 @@ function Products(props) {
               </span>
               <div className="flex flex-col">
                 <button
-                  className=" border-2 border-black py-3 my-3 text-xl"
+                  className=" border-2 border-black py-3 my-3 text-xl group-hover:bg-slate-300"
                   onClick={() => addBasket(product.id)}
                 >
                   Add to cart
@@ -56,7 +57,6 @@ function Products(props) {
                     color="#000"
                     edit={false}
                     isHalf={true}
-             
                   />
                   <span className="text-sm pl-1">({product.rating.count})</span>
                 </div>

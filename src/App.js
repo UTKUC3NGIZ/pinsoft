@@ -11,9 +11,9 @@ function App() {
   const [filter, setFilter] = useState([]);
   const [filteredData, setFilteredData] = useState(products);
   const [basket, setBasket] = useState([]);
-  
+
   return (
-    <div className="h-full bg-slate-950">
+    <div className="h-full bg-white">
       <Navbar
         products={products}
         filteredData={filteredData}
