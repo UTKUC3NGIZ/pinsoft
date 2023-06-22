@@ -6,7 +6,7 @@
 
 <h2>🚀 Demo</h2>
 
-https://todo-app-react-self-eta.vercel.app/
+https://pinsoft.vercel.app/
 
 <h2>Project Screenshots:</h2>
 
